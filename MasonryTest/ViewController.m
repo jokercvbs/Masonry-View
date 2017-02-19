@@ -107,39 +107,39 @@
     self.greenView.backgroundColor = [UIColor greenColor];
     
     [self.view addSubview:self.scrollView];
-//    [self.scrollView addSubview:self.containerView];
+    [self.scrollView addSubview:self.containerView];
     
-//    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
-//
-    CGFloat padding = LXZViewPadding;
-////    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-////        make.edges.equalTo(self.scrollView).insets(UIEdgeInsetsMake(padding, padding, padding, padding));
-////    }];
-//
-    [self.scrollView addSubview:self.greenView];
-    [self.greenView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.scrollView).offset(padding);
-        make.size.mas_equalTo(CGSizeMake(1000, 500));
-        make.bottom.right.equalTo(self.scrollView).offset(-padding);
+    // 在进行约束的时候，要对containerView的上下左右都添加和子视图的约束，以便确认containerView的边界区域。
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
     }];
     
-//    [self.containerView addSubview:self.redView];
-//    [self.redView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.containerView).offset(padding);
-//        make.left.equalTo(self.greenView.mas_right).offset(padding);
-//        make.size.equalTo(self.greenView);
-//        make.right.equalTo(self.containerView).offset(-padding);
-//    }];
-//
-//    [self.containerView addSubview:self.yellowView];
-//    [self.yellowView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.containerView).offset(padding);
-//        make.top.equalTo(self.greenView.mas_bottom).offset(padding);
-//        make.size.equalTo(self.greenView);
-//        make.bottom.equalTo(self.containerView).offset(-padding);
-//    }];
+    CGFloat padding = LXZViewPadding;
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.scrollView).insets(UIEdgeInsetsMake(padding, padding, padding, padding));
+    }];
+    
+    [self.containerView addSubview:self.greenView];
+    [self.greenView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(self.containerView).offset(padding);
+        make.size.mas_equalTo(CGSizeMake(250, 250));
+    }];
+    
+    [self.containerView addSubview:self.redView];
+    [self.redView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.containerView).offset(padding);
+        make.left.equalTo(self.greenView.mas_right).offset(padding);
+        make.size.equalTo(self.greenView);
+        make.right.equalTo(self.containerView).offset(-padding);
+    }];
+    
+    [self.containerView addSubview:self.yellowView];
+    [self.yellowView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.containerView).offset(padding);
+        make.top.equalTo(self.greenView.mas_bottom).offset(padding);
+        make.size.equalTo(self.greenView);
+        make.bottom.equalTo(self.containerView).offset(-padding);
+    }];
 }
 
 
