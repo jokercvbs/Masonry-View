@@ -121,7 +121,7 @@
     [self.scrollView addSubview:self.greenView];
     [self.greenView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.scrollView).offset(padding);
-        make.size.mas_equalTo(CGSizeMake(1000, 1000));
+        make.size.mas_equalTo(CGSizeMake(1000, 500));
         make.bottom.right.equalTo(self.scrollView).offset(-padding);
     }];
     
