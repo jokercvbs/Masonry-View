@@ -9,7 +9,7 @@
 #define MAS_SHORTHAND
 // 定义这个常量，就可以让Masonry帮我们自动把基础数据类型的数据，自动装箱为对象类型。
 #define MAS_SHORTHAND_GLOBALS
-#define LXZViewPadding 10
+#define LXZViewPadding 20
 #import "ViewController.h"
 #import "Masonry.h"
 @interface ViewController ()
